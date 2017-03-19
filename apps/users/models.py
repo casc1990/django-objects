@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from datetime import datetime
 
+
 #AbstractUser就是定义django的user表的函数
 from django.contrib.auth.models import AbstractUser
 from django.db import models
