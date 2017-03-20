@@ -15,7 +15,7 @@ class UserProfile(AbstractUser):
         verbose_name：后台显示的名称；max_length：长度 (图片类型也是以字符存储的，也需要指定长度)'''
     nick_name = models.CharField(max_length=50,verbose_name=u'昵称',default='')
     birday = models.DateField(verbose_name=u'生日',null=True,blank=True)
-    gender = models.CharField(choices=(("male",u'男'),("female",u'女')),verbose_name=u'性别',max_length=1,default='female')
+    gender = models.CharField(choices=(("male",u'男'),("female",u'女')),verbose_name=u'性别',max_length=50,default=u'female')
     address = models.CharField(max_length=100,verbose_name=u'地址',default=u"")
     mobile = models.CharField(max_length=11,verbose_name=u'手机号',null=True,blank=True)
     image = models.ImageField(upload_to="image/%Y/%m",default=u'image/default.png',max_length=500)
