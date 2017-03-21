@@ -17,6 +17,7 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(BASE_DIR,'apps'))  #将apps路径加入到python搜索路径
+sys.path.insert(1,os.path.join(BASE_DIR,'extra_apps')) #将xadmin后台加入到命令搜索路径
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,7 +44,9 @@ INSTALLED_APPS = [
     'users',
     'courses',
     'organization',
-    'operation'
+    'operation',
+    'xadmin',
+    'crispy_forms',
 ]
 AUTH_USER_MODEL = 'users.UserProfile'   #用户认证使用我们定义的model（继承了user模块，并增加了新的属性）
 MIDDLEWARE_CLASSES = [
