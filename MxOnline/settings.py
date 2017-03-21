@@ -17,7 +17,7 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(BASE_DIR,'apps'))  #将apps路径加入到python搜索路径
-sys.path.insert(1,os.path.join(BASE_DIR,'extra_apps')) #将xadmin后台加入到命令搜索路径
+sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps')) #将xadmin后台加入到命令搜索路径
 
 
 # Quick-start development settings - unsuitable for production

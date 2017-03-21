@@ -31,12 +31,15 @@ class EmailVerifyRecord(models.Model):
     ''' 邮箱验证码model'''
     code = models.CharField(max_length=20,verbose_name=u'验证码')
     email = models.CharField(max_length=50,verbose_name=u'邮箱')
-    send_type = models.CharField(max_length=10,choices=(('forget',u'密码找回'),('register',u'注册')))
-    send_time = models.DateTimeField(default=datetime.now)
+    send_type = models.CharField(max_length=10,choices=(('forget',u'密码找回'),('register',u'注册')),verbose_name=u'验证码类型')
+    send_time = models.DateTimeField(default=datetime.now,verbose_name=u'发送时间')
 
     class Meta:
         verbose_name = u'邮箱验证码'
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return '{0}({1})'.format(self.code,self.email)    #格式化输出。验证码+(邮箱)
 
 class Banner(models.Model):
     title = models.CharField(max_length=100,verbose_name=u'标题')
