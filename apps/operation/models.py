@@ -20,6 +20,9 @@ class UserAsk(models.Model):
         verbose_name = u'用户咨询'
         verbose_name_plural = verbose_name
 
+    def __unicode__(self):
+        return self.name
+
 
 class CourseComments(models.Model):
     ''' 课程评论'''
@@ -31,6 +34,9 @@ class CourseComments(models.Model):
     class Meta:
         verbose_name = u'课程评论'
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return self.name
 
 
 class UserFavorite(models.Model):
@@ -44,6 +50,9 @@ class UserFavorite(models.Model):
         verbose_name = u'用户收藏'
         verbose_name_plural = verbose_name
 
+    def __unicode__(self):
+        return self.user
+
 
 class UserMessage(models.Model):
     ''' 用户消息  default=0发送给所有人，user接受user id，发送给指定id的用户   '''
@@ -56,6 +65,9 @@ class UserMessage(models.Model):
         verbose_name = u'用户消息'
         verbose_name_plural = verbose_name
 
+    def __unicode__(self):
+        return self.user
+
 
 class UserCourse(models.Model):
     name = models.ForeignKey(UserProfile, verbose_name=u'用户')
@@ -65,6 +77,9 @@ class UserCourse(models.Model):
     class Meta:
         verbose_name = u'用户课程'
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return self.name
 
 
 

@@ -9,7 +9,7 @@ class Course(models.Model):
     ''' 课程model'''
     name = models.CharField(max_length=50,verbose_name=u'课程名')
     desc  = models.CharField(max_length=300,verbose_name=u'课程描述')
-    detail = models.TextField(verbose_name=u'课程描述')
+    detail = models.TextField(verbose_name=u'课程详情')
     degree = models.CharField(choices=(('cj',u'初级'),('zj',u'中级'),('gj',u'高级')),max_length=5)
     learn_times = models.IntegerField(default=0,verbose_name=u'学习时长(分钟)')
     students = models.IntegerField(default=0,verbose_name=u'学习人数')
@@ -22,6 +22,9 @@ class Course(models.Model):
         verbose_name = u'课程'
         verbose_name_plural = verbose_name
 
+    def __unicode__(self):
+        return self.name
+
 
 class Lesson(models.Model):
     ''' 课程的章节  章节和课程是一对多的关系，用外键和Course关联 '''
@@ -33,6 +36,9 @@ class Lesson(models.Model):
         verbose_name = u'章节'
         verbose_name_plural = verbose_name
 
+    def __unicode__(self):
+        return  self.name
+
 
 class Video(models.Model):
     ''' 章节里的视频 视频和章节是一对多的关系，用外键和Lesson关联 '''
@@ -43,6 +49,9 @@ class Video(models.Model):
     class Meta:
         verbose_name = u'视频'
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return self.name
 
 
 class CourseResource(models.Model):
