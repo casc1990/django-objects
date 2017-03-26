@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    "users.views.CustomBackend",  #自定义认证
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -134,4 +137,7 @@ USE_TZ = False   #True表示utc时间
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+)
