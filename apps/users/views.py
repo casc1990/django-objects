@@ -57,3 +57,7 @@ def user_login(request):  #用户登陆（使用函数的view）
             return render(request, 'login.html', {'msg': u'用户名或者密码错误'})  # 验证不通过，返回登陆页面
     elif request.method == 'GET':  #get方法也返回登陆页面
         return render(request,'login.html',{})
+
+
+
+
