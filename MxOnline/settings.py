@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',
     'crispy_forms',
+    'captcha',
 ]
 AUTH_USER_MODEL = 'users.UserProfile'   #用户认证使用我们定义的model（继承了user模块，并增加了新的属性）
 MIDDLEWARE_CLASSES = [

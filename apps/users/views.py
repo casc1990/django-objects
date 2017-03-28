@@ -25,6 +25,12 @@ class CustomBackend(ModelBackend): #定义自定义的认证方法
         except Exception as e:
             return None  #异常，返回None
 
+class RegisterView(View):
+    def get(self,request):
+        return render(request, 'register.html', {})
+    def post(self,request):
+        pass
+
 class LoginView(View): #使用类定义view
     def get(self,request):  #使用View类里的get方法（等同于if request.method == 'GET': ）
         return render(request, 'login.html', {})
