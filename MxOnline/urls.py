@@ -29,5 +29,5 @@ urlpatterns = [
     #url(r'^login/$', views.user_login,name="login"), #调用函数定义的view
     url(r'^login/$', views.LoginView.as_view(),name="login"), #调用类定义的view（登陆）
     url(r'^register/$', views.RegisterView.as_view(),name="register"), #调用类定义的view（注册）
-    url(r'^captcha/', include('captcha.urls')),
+    url(r'^captcha/', include('captcha.urls')), #调用第三方验证码函数（pip install django-simple-captcha==0.4.6）
 ]

@@ -6,7 +6,7 @@ from django.db.models import Q  #支持并集、交集查询
 from django.views.generic.base import View
 
 from .models import UserProfile
-from .forms import LoginForm
+from .forms import LoginForm,RegisterForm
 
 class CustomBackend(ModelBackend): #定义自定义的认证方法
     #继承ModelBackend类，使用这个类的authenticate方法验证
@@ -27,7 +27,8 @@ class CustomBackend(ModelBackend): #定义自定义的认证方法
 
 class RegisterView(View):
     def get(self,request):
-        return render(request, 'register.html', {})
+        register_form = RegisterForm()
+        return render(request, 'register.html', {'register_form':register_form})
     def post(self,request):
         pass
 
