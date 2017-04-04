@@ -142,3 +142,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+EMAIL_HOST = "smtp.139.com"
+EMAIL_PORT= 25
+EMAIL_HOST_USER = "18210620334@139.com"
+EMAIL_HOST_PASSWORD = "pengbo110504"
+EMAIL_USE_TLS = False
+EMAIL_FROM = "18210620334@139.com" #发件人

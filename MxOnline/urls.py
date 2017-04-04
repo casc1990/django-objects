@@ -30,4 +30,8 @@ urlpatterns = [
     url(r'^login/$', views.LoginView.as_view(),name="login"), #调用类定义的view（登陆）
     url(r'^register/$', views.RegisterView.as_view(),name="register"), #调用类定义的view（注册）
     url(r'^captcha/', include('captcha.urls')), #调用第三方验证码函数（pip install django-simple-captcha==0.4.6）
+    url(r'^active/(?P<active_code>.*)/$',views.ActiveUserView.as_view(),name="active"), #激活链接
+    url(r'^reset/(?P<reset_code>.*)/$',views.ResetView.as_view(),name="reset"), #重置密码链接
+    url(r'^modify_pwd/$', views.ModifyPwdView.as_view(),name="modify_pwd"), #重置密码
+    url(r'^forget/$', views.ForgetPwdView.as_view(),name="forget_pwd"), #找回密码
 ]
