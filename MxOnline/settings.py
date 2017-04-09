@@ -78,6 +78,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #导入media的上下文处理器（导入之后，模板文件就可以使用settings文件定义的变量，
+                # 例如，模板中可以使用{{ MEDIA_URL }}变量替换为 “'/static/'” ）
+                'django.core.context_processors.media',
             ],
         },
     },
@@ -137,11 +140,15 @@ USE_TZ = False   #True表示utc时间
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+#静态文件的路径
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+#图片上传路径
+MEDIA_URL = '/media/'  #上传的url
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') #图片的根目录
 
 EMAIL_HOST = "smtp.139.com"
 EMAIL_PORT= 25

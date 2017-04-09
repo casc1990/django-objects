@@ -1,25 +1,13 @@
 #-*- coding:utf-8 -*-
-"""MxOnline URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Add an import:  from blog import urls as blog_urls
-    2. Import the include() function: from django.conf.urls import url, include
-    3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
-"""
 from django.conf.urls import url,include
 from django.contrib import admin
 from django.views.generic import TemplateView
+from django.views.static import serve  #处理静态文件的模块
+
 from users import views
+from organization import views as views1
 import xadmin
+from MxOnline.settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),  #原生admin后台
@@ -34,4 +22,8 @@ urlpatterns = [
     url(r'^reset/(?P<reset_code>.*)/$',views.ResetView.as_view(),name="reset"), #重置密码链接
     url(r'^modify_pwd/$', views.ModifyPwdView.as_view(),name="modify_pwd"), #重置密码
     url(r'^forget/$', views.ForgetPwdView.as_view(),name="forget_pwd"), #找回密码
+    url(r'^org_list/$', views1.OrgView.as_view(),name="org_list"), #课程机构首页
+    #因为打开图片http://localhost:8000/media/org/2017/04/imooc_logo.png,所有要定义media的url，
+    # serve是处理静态文件的，把静态资源的绝对路径传给它，就可以正常打印我们的图片
+    url(r'^media/(?P<path>.*)/$',serve,{"document_root":MEDIA_ROOT}),
 ]
